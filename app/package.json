@@ -1,0 +1,13 @@
+{
+  "name": "cp02-app",
+  "version": "1.0.0",
+  "description": "App lab FIAP - CP02 Jenkins CI/CD",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
