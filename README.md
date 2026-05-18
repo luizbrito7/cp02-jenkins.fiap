@@ -1,49 +1,76 @@
-# CP02 - Jenkins CI/CD Pipeline
+<h1 align="center">
+  CP02 - Jenkins CI/CD Pipeline
+</h1>
 
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoftazure&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
-![GHCR](https://img.shields.io/badge/GHCR-181717?style=flat&logo=github&logoColor=white)
+<p align="center">
+  <a href="https://youtu.be/8zGAl_VttFs">
+    <img src="docs/image.png" alt="Arquitetura do projeto - clique para assistir a apresentação" />
+  </a>
+</p>
 
-Checkpoint 02 da disciplina de Computação em Nuvem — FIAP. O projeto implementa uma esteira completa de CI/CD utilizando Jenkins, Docker e infraestrutura provisionada na Azure via Terraform.
+<h4 align="center"><a href="https://youtu.be/8zGAl_VttFs">Clique para assistir a apresentação no YouTube</a></h4>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=jenkins,docker,terraform,azure,nodejs,express,linux,bash,github" alt="Stacks" />
+  </a>
+</p>
+
+## Qual a finalidade do projeto?
+
+Checkpoint 02 da disciplina de **Computação em Nuvem** - FIAP. O projeto implementa uma esteira completa de **CI/CD** utilizando **Jenkins**, **Docker** e infraestrutura provisionada na **Azure** via **Terraform**, com deploy automatizado de uma API Node.js a cada push na branch `main`.
+
+> [!NOTE]
+> A apresentação completa do projeto - incluindo a infraestrutura provisionada, a pipeline em execução e o deploy automatizado - está disponível no [vídeo do YouTube](https://youtu.be/8zGAl_VttFs).
 
 
-## O que foi construido
+<br>
+
+## O que foi construído
 
 ### Infraestrutura (Terraform + Azure)
 
-- Resource Group unico na regiao `eastus`
-- Virtual Network com subnet dedicada ao laboratorio
+- Resource Group único na região `eastus`
+- Virtual Network com subnet dedicada ao laboratório
 - Duas Virtual Machines Ubuntu 22.04 (Standard_B2s):
-  - `vm-jenkins-lab` — servidor Jenkins rodando em container Docker
-  - `vm-app-lab` — servidor de deploy da aplicacao
+  - `vm-jenkins-lab` - servidor Jenkins rodando em container Docker
+  - `vm-app-lab` - servidor de deploy da aplicação
 - Network Security Groups com regras para SSH, HTTP, porta 8080 (Jenkins) e porta 3000 (App)
-- IPs publicos estaticos para ambas as VMs
+- IPs públicos estáticos para ambas as VMs
 - Chaves SSH individuais por VM
 
 ### Pipeline CI/CD (Jenkins)
 
-- **CI - Build:** build da imagem Docker da aplicacao com tag baseada no `BUILD_NUMBER`
+- **CI - Build:** build da imagem Docker da aplicação com tag baseada no `BUILD_NUMBER`
 - **CI - Push:** push da imagem para o GitHub Container Registry (GHCR)
-- **CD - Deploy:** deploy automatico na `vm-app-lab` via SSH, somente na branch `main`
-- Trigger automatico via webhook do GitHub a cada push
+- **CD - Deploy:** deploy automático na `vm-app-lab` via SSH, somente na branch `main`
+- Trigger automático via webhook do GitHub a cada push
 
 ### Aplicação
 
 - API REST em Node.js com Express
-- Endpoint `/` retorna versao, nome da imagem e timestamp
-- Endpoint `/health` retorna status da aplicacao
+- Endpoint `/` retorna versão, nome da imagem e timestamp
+- Endpoint `/health` retorna status da aplicação
 - Containerizada com Docker e publicada no GHCR
 
 
-## Arquitetura
+<br>
 
-![Diagrama de Arquitetura](docs/image.png)
+## Tecnologias utilizadas
+
+- **Jenkins:** servidor de automação para orquestração da pipeline CI/CD;
+- **Docker:** containerização da aplicação e do próprio Jenkins;
+- **Terraform:** provisionamento da infraestrutura como código na Azure;
+- **Azure:** nuvem onde toda a infraestrutura é provisionada;
+- **Node.js + Express:** runtime e framework da API exposta pelo pipeline;
+- **GitHub Container Registry (GHCR):** registro das imagens Docker geradas;
+- **Linux (Ubuntu 22.04):** sistema operacional das VMs;
+- **Git:** controle de versão e gatilho dos webhooks de build.
 
 
-## Estrutura do Repositorio
+<br>
+
+## Estrutura do repositório
 
 ```
 cp02-jenkins.fiap/
@@ -63,18 +90,12 @@ cp02-jenkins.fiap/
 ```
 
 
-## Vídeo
-
-> [!NOTE]
-> Vídeo de apresentação do projeto, demonstrando a infraestrutura provisionada, a pipeline em execução e o deploy automatizado.
-
-[![Assistir no YouTube](https://img.shields.io/badge/YouTube-Assistir%20apresenta%C3%A7%C3%A3o-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/8zGAl_VttFs)
-
+<br>
 
 ## Grupo
 
 | Nome | RM |
-|
+|---|---|
 | Anderson Huang | rm565920@fiap.com.br |
 | Bruno Henrique | rm566277@fiap.com.br |
 | Ronaldo Attamah | rm564630@fiap.com.br |
