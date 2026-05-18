@@ -30,28 +30,33 @@ Checkpoint 02 da disciplina de **Computação em Nuvem** - FIAP. O projeto imple
 
 ### Infraestrutura (Terraform + Azure)
 
-- Resource Group único na região `eastus`
-- Virtual Network com subnet dedicada ao laboratório
-- Duas Virtual Machines Ubuntu 22.04 (Standard_B2s):
-  - `vm-jenkins-lab` - servidor Jenkins rodando em container Docker
-  - `vm-app-lab` - servidor de deploy da aplicação
-- Network Security Groups com regras para SSH, HTTP, porta 8080 (Jenkins) e porta 3000 (App)
-- IPs públicos estáticos para ambas as VMs
-- Chaves SSH individuais por VM
+| Recurso | Descrição |
+|---|---|
+| Resource Group | Único, provisionado na região `eastus` |
+| Virtual Network | VNet com subnet dedicada ao laboratório |
+| `vm-jenkins-lab` | VM Ubuntu 22.04 (Standard_B2s) com Jenkins em container Docker |
+| `vm-app-lab` | VM Ubuntu 22.04 (Standard_B2s) servidor de deploy da aplicação |
+| Network Security Groups | Regras para SSH, HTTP, porta 8080 (Jenkins) e porta 3000 (App) |
+| IPs públicos | Estáticos para ambas as VMs |
+| Chaves SSH | Pares individuais por VM |
 
 ### Pipeline CI/CD (Jenkins)
 
-- **CI - Build:** build da imagem Docker da aplicação com tag baseada no `BUILD_NUMBER`
-- **CI - Push:** push da imagem para o GitHub Container Registry (GHCR)
-- **CD - Deploy:** deploy automático na `vm-app-lab` via SSH, somente na branch `main`
-- Trigger automático via webhook do GitHub a cada push
+| Etapa | Descrição |
+|---|---|
+| **CI - Build** | Build da imagem Docker da aplicação com tag baseada no `BUILD_NUMBER` |
+| **CI - Push** | Push da imagem para o GitHub Container Registry (GHCR) |
+| **CD - Deploy** | Deploy automático na `vm-app-lab` via SSH, somente na branch `main` |
+| **Trigger** | Webhook do GitHub disparando o pipeline a cada push |
 
 ### Aplicação
 
-- API REST em Node.js com Express
-- Endpoint `/` retorna versão, nome da imagem e timestamp
-- Endpoint `/health` retorna status da aplicação
-- Containerizada com Docker e publicada no GHCR
+| Item | Descrição |
+|---|---|
+| Stack | API REST em Node.js com Express |
+| Endpoint `/` | Retorna versão, nome da imagem e timestamp |
+| Endpoint `/health` | Retorna status da aplicação |
+| Distribuição | Containerizada com Docker e publicada no GHCR |
 
 
 <br>
