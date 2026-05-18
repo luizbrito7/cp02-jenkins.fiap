@@ -18,7 +18,7 @@
 
 ## Qual a finalidade do projeto?
 
-Checkpoint 02 da disciplina de **Computação em Nuvem** - FIAP. O projeto implementa uma esteira completa de **CI/CD** utilizando **Jenkins**, **Docker** e infraestrutura provisionada na **Azure** via **Terraform**, com deploy automatizado de uma API Node.js a cada push na branch `main`.
+Checkpoint 02 da disciplina DevOps CI/CD. O projeto implementa uma esteira completa  utilizando **Jenkins**, **Docker** e infraestrutura provisionada na **Azure** via **Terraform**, com deploy automatizado de uma API Node.js a cada push na branch `main`.
 
 > [!NOTE]
 > A apresentação completa do projeto - incluindo a infraestrutura provisionada, a pipeline em execução e o deploy automatizado - está disponível no [vídeo do YouTube](https://youtu.be/8zGAl_VttFs).
