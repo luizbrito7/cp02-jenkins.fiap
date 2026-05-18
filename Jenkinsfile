@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        githubPush()
+    }
+
     environment {
         // == Configurações do registry =========================================
         REGISTRY      = 'ghcr.io'
