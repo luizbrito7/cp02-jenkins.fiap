@@ -9,7 +9,6 @@
 
 Checkpoint 02 da disciplina de Computação em Nuvem — FIAP. O projeto implementa uma esteira completa de CI/CD utilizando Jenkins, Docker e infraestrutura provisionada na Azure via Terraform.
 
----
 
 ## O que foi construido
 
@@ -38,13 +37,11 @@ Checkpoint 02 da disciplina de Computação em Nuvem — FIAP. O projeto impleme
 - Endpoint `/health` retorna status da aplicacao
 - Containerizada com Docker e publicada no GHCR
 
----
 
 ## Arquitetura
 
 ![Diagrama de Arquitetura](docs/image.png)
 
----
 
 ## Estrutura do Repositorio
 
@@ -65,12 +62,19 @@ cp02-jenkins.fiap/
         └── install-jenkins.sh
 ```
 
----
+
+## Vídeo
+
+> [!NOTE]
+> Vídeo de apresentação do projeto, demonstrando a infraestrutura provisionada, a pipeline em execução e o deploy automatizado.
+
+[![Assistir no YouTube](https://img.shields.io/badge/YouTube-Assistir%20apresenta%C3%A7%C3%A3o-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/8zGAl_VttFs)
+
 
 ## Grupo
 
 | Nome | RM |
-|---|---|
+|
 | Anderson Huang | rm565920@fiap.com.br |
 | Bruno Henrique | rm566277@fiap.com.br |
 | Ronaldo Attamah | rm564630@fiap.com.br |
