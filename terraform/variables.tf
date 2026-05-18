@@ -22,8 +22,14 @@ variable "admin_username" {
   default     = "azureuser"
 }
 
-variable "ssh_public_key_path" {
-  description = "Caminho para a chave pública SSH"
+variable "ssh_public_key_path_jenkins" {
+  description = "Caminho para a chave pública SSH da VM Jenkins"
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
+  default     = "~/.ssh/id_jenkins_lab.pub"
+}
+
+variable "ssh_public_key_path_app" {
+  description = "Caminho para a chave pública SSH da VM App"
+  type        = string
+  default     = "~/.ssh/id_app_lab.pub"
 }

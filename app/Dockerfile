@@ -1,5 +1,7 @@
 FROM node:20-alpine
 
+LABEL org.opencontainers.image.source="https://github.com/luizbrito7/cp02-jenkins.fiap"
+
 WORKDIR /app
 
 COPY package.json .

@@ -16,11 +16,6 @@ resource "azurerm_resource_group" "lab" {
   location = var.location
 }
 
-resource "azurerm_resource_group" "jenkins" {
-  name     = "rg-jenkins-lab"
-  location = var.location
-}
-
 # == Network ==================================================================
 
 resource "azurerm_virtual_network" "lab" {
@@ -162,7 +157,7 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = file(var.ssh_public_key_path)
+    public_key = file(var.ssh_public_key_path_jenkins)
   }
 
   os_disk {
@@ -217,7 +212,7 @@ resource "azurerm_linux_virtual_machine" "app" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = file(var.ssh_public_key_path)
+    public_key = file(var.ssh_public_key_path_app)
   }
 
   os_disk {
