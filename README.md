@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://youtu.be/8zGAl_VttFs">
-    <img src="docs/image.png" alt="Arquitetura do projeto - clique para assistir a apresentação" />
+    <img src="docs/arch.gif" alt="Arquitetura do projeto: Dev faz push no GitHub, webhook dispara o Jenkins na vm-jenkins-lab, build no docker:dind, push para o GHCR e deploy via SSH na vm-app-lab (Azure, provisionada com Terraform) - clique para assistir a apresentação" />
   </a>
 </p>
 
